@@ -1,6 +1,7 @@
 import openai
 import json
 import os
+import landslide # api for slides
 
 # set up API key
 
@@ -11,7 +12,11 @@ openai.api_key = key
 topic = input("Enter the topic of the presentation:")
 class_name = input("Enter the class name: ")
 
-prompt = "Write a bullet-point slideshow about ${topic} for a ${class_name} class. Create 15 slides. Write a title for each slide, and each slide should have at most 5 bullet points. Please format the entire thing in Markdown format, with each slide title being a markkdown `#` header. Each slide should be separated by a `---`. Please place the Markdown in a code block so I can copy-paste it. Don't write an outline for slides;  write the content for them."
+prompt = "Write a bullet-point slideshow about ${topic} for a ${class_name} class."
+"Create 15 slides. Write a title for each slide, and each slide should have at most 5 bullet points."
+"Please format the entire thing in Markdown format, with each slide title being a markkdown `#` header. "
+"Each slide should be separated by a `---`. Please place the Markdown in a code block so I can copy-paste it. " 
+"Don't write an outline for slides;  write the content for them."
 
 # set parameters for API request
 model_engine = "text-davinci-003"
